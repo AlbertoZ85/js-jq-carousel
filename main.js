@@ -23,16 +23,21 @@ $(document).ready(function() {
     // 1. Al click di uno dei pulsanti di navigazione rimuovo la classe 'active' dagli elementi correnti attivi
     $('.nav i').click(function() {
         $('.active').removeClass('active');
-        // potrei farlo separatamente con activeImg.removeClass('active') e activeNavDot.removeClass('active')
+        // potrei farlo separatamente, dopo aver dichiarato le variabili var activeImg = $('.images img.active') e var activeNavDot = $('.nav i.active'), con activeImg.removeClass('active') e activeNavDot.removeClass('active')
 
-    // 2. Creo una var indexNavDot in cui salvo l'indice del pulsante cliccato
-        var indexNavDot = $(this).index();
-
-    // 3. Attribuisco la classe 'active' al pulsante cliccato e all'immagine con indice pari a quello di tale pulsante
+    // 2. Attribuisco la classe 'active' al pulsante cliccato e all'immagine con indice pari a quello di tale pulsante
         $(this).addClass('active');
-        $('img').eq(indexNavDot).addClass('active');
+        $('img').eq($(this).index()).addClass('active');
     })
-    
+
+    // Con var di appoggio indexNavDot
+    // $('.nav i').click(function() {
+    //     $('.active').removeClass('active');
+    //     var indexNavDot = $(this).index();
+    //     $(this).addClass('active');
+    //     $('img').eq(indexNavDot).addClass('active');
+    // })
+
 
     // *** BONUS 2 *** //
     // Alla pressione delle frecce della tastiera si attivano le funzioni per lo scorrimento delle immagini
