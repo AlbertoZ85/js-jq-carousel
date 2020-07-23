@@ -32,6 +32,18 @@ $(document).ready(function() {
         $(this).addClass('active');
         $('img').eq(indexNavDot).addClass('active');
     })
+    
+
+    // *** BONUS 2 *** //
+    // Alla pressione delle frecce della tastiera si attivano le funzioni per lo scorrimento delle immagini
+
+    $(document).keydown(function(key) {
+    if (key.which == 37) {
+        prevImg();
+    }   else if (key.which == 39) {
+        nextImg();
+    }
+    });
 });
 
 
