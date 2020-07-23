@@ -11,25 +11,26 @@
 
 // 1. Uso il metodo .ready() per assicurarmi che il codice js venga eseguito soltanto a caricamento del DOM ultimato
 $(document).ready(function() {
+
     // 2. al click delle frecce sx e dx invoco le rispettive funzioni per lo scorrimento delle immagini e dei relativi pallini della barra di navigazione.
     $('.prev').click(prevImg);
     $('.next').click(nextImg);
     // In questo caso le funzioni vengono invocate senza parentesi () in quanto assumono la valenza di argomenti assegnati come parametri al metodo .click() (metodo = funzione applicata a un oggetto)
 
-    // *** BONUS *** //
-    var activeImg = $('.images img.active');
-    var activeNavDot = $('.nav i.active');
-    var indexNavDot = 0;
-    var indexImg = 0;
 
+    // *** BONUS *** //
+
+    // 1. Al click di uno dei pulsanti di navigazione rimuovo la classe 'active' dagli elementi correnti attivi
     $('.nav i').click(function() {
-        $(activeNavDot).removeClass('active');
-        $(activeImg).removeClass('active');
-        indexNavDot = $(this).index();
+        $('.active').removeClass('active');
+        // potrei farlo separatamente con activeImg.removeClass('active') e activeNavDot.removeClass('active')
+
+    // 2. Creo una var indexNavDot in cui salvo l'indice del pulsante cliccato
+        var indexNavDot = $(this).index();
+
+    // 3. Attribuisco la classe 'active' al pulsante cliccato e all'immagine con indice pari a quello di tale pulsante
         $(this).addClass('active');
         $('img').eq(indexNavDot).addClass('active');
-        // activeNavDot = $(this);
-        // activeImg = $('img').eq(indexNavDot);
     })
 });
 
