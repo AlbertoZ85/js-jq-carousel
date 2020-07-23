@@ -15,7 +15,24 @@ $(document).ready(function() {
     $('.prev').click(prevImg);
     $('.next').click(nextImg);
     // In questo caso le funzioni vengono invocate senza parentesi () in quanto assumono la valenza di argomenti assegnati come parametri al metodo .click() (metodo = funzione applicata a un oggetto)
+
+    // *** BONUS *** //
+    var activeImg = $('.images img.active');
+    var activeNavDot = $('.nav i.active');
+    var indexNavDot = 0;
+    var indexImg = 0;
+
+    $('.nav i').click(function() {
+        $(activeNavDot).removeClass('active');
+        $(activeImg).removeClass('active');
+        indexNavDot = $(this).index();
+        $(this).addClass('active');
+        $('img').eq(indexNavDot).addClass('active');
+        // activeNavDot = $(this);
+        // activeImg = $('img').eq(indexNavDot);
+    })
 });
+
 
 // *** FUNZIONI *** //
 // a. Funzione che al click della freccia sx del carosello visualizza l'immagine precedente e accende il relativo pulsante di navigazione
